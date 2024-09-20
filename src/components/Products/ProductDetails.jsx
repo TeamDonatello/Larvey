@@ -18,7 +18,7 @@ export default function ProductDetails({ id, value }) {
 
   const [selectImageArray, setSelectImageArray] = useState(0);
   const elements = []
-  for(let i = 0;i<=6;i++){
+  for(let i = 0;i<=5;i++){
     elements.push(<div className="server-ad-item h-78 w-auto m-2" key={i}>
       <img src={Jacket_1} alt=""  className="h-64 w-48 rounded-md"/>
       <article className="font-sans font-bold text-lg text-zinc-950 m-1">This Armadulo</article>
@@ -28,10 +28,10 @@ export default function ProductDetails({ id, value }) {
   return (
     <div className=" h-auto flex flex-col bg-slate-100 ">
       <div className="productDetailsContainer flex flex-row h-3/5 m-3">
-        <div
-          className="main-image h-full w-2/5 m-2.5 bg-slate-100 bg-current bg-cover bg-no-repeat rounded-xl flex-1"
+        <section
+          className="main-image h-[66vh] w-2/5 m-3 bg-current bg-cover bg-no-repeat bg-center rounded-xl flex-1 bg-black"
           style={{ backgroundImage: `url(${imageArray[selectImageArray]})` }}
-        ></div>
+        ></section>
         <div className="sub-Images h-full w-2/12 bg-slate-100 m-2 flex flex-col p-2 items-center justify-between flex-2">
           <button className="h-[24%] w-[80%] bg-transparent border-none outline-none mb-1 mt-1">
             <img
@@ -74,9 +74,13 @@ export default function ProductDetails({ id, value }) {
           <h1 className="title-product-name text-black text-3xl text-pretty text-center font-sans font-bold">
             Boa Fleece Jacket
           </h1>
-          <article className="title-product-prices text-gray-800 font-normal font-serif">
-            $129.00 $122.00
-          </article>
+          <div className="title-product-offer h-6 w-full flex flex-row m-2 items-end">
+           <article className="title-product-prices text-gray-800 font-normal font-serif  line-through align-baseline">
+            $129.00
+          </article> 
+            <article className="font-serif text-gray-800 font-extrabold text-3xl ml-2">$122.00</article>
+          </div>
+          
           <article className="title-product-reviews text-lg text-slate-700">
             Description
           </article>
@@ -110,7 +114,7 @@ export default function ProductDetails({ id, value }) {
       </div>
       
       <article className="text-slate-950 text-3xl font-sans font-thin m-5">This item can be cool with this</article>
-      <div className="server-ad-response h-auto w-auto flex flex-row">
+      <div className="server-ad-response h-auto w-auto flex flex-row justify-between">
         {elements}
       </div>
     </div>
