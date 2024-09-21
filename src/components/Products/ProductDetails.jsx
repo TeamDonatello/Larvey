@@ -11,17 +11,17 @@ export { Jacket_1, Jacket_2, Jacket_3, Jacket_4 };
 export default function ProductDetails({ id, value }) {
   const targetMore = "9090";
   const targetMoreLink = "0909";
-  const [imageArray, setImageArray] = useState("");
+  const [imageArray, setImageArray] = useState([]);
   useEffect(() => {
     setImageArray([Jacket_1, Jacket_2, Jacket_3, Jacket_4]);
   }, [0]);
 
   const [selectImageArray, setSelectImageArray] = useState(0);
   const elements = []
-  for(let i = 0;i<=5;i++){
+  for(let i = 0;i<=9;i++){
     elements.push(<div className="server-ad-item h-78 w-auto m-2" key={i}>
       <img src={Jacket_1} alt=""  className="h-64 w-48 rounded-md"/>
-      <article className="font-sans font-bold text-lg text-zinc-950 m-1">This Armadulo</article>
+      <article className="font-sans font-bold text-lg text-zinc-950 m-1">Bomba Jacket</article>
       <article className="server-ad-item-price-tag font-serif font-thin text-zinc-900 text-lg m-1">$234.00</article>
     </div>)
   }
@@ -33,42 +33,17 @@ export default function ProductDetails({ id, value }) {
           style={{ backgroundImage: `url(${imageArray[selectImageArray]})` }}
         ></section>
         <div className="sub-Images h-full w-2/12 bg-slate-100 m-2 flex flex-col p-2 items-center justify-between flex-2">
-          <button className="h-[24%] w-[80%] bg-transparent border-none outline-none mb-1 mt-1">
+        {imageArray.map((value,key)=>(
+          <button className="h-[24%] w-[80%] bg-transparent border-none outline-none mb-1 mt-1" key={key}>
             <img
-              src={Jacket_2}
+              src={value}
               alt=""
               className="h-full w-full rounded-lg"
               onClick={() => {
-                setSelectImageArray(0);
+                setSelectImageArray(key);
               }}
-            />
-          </button>
-          <button
-            className="h-[24%] w-[80%] bg-transparent border-none outline-none mb-1 mt-1"
-            onClick={() => {
-              setSelectImageArray(1);
-            }}
-          >
-            <img src={Jacket_2} alt="" className="h-full w-full rounded-lg" />
-          </button>
-          <button
-            className="h-[24%] w-[80%] bg-transparent border-none outline-none mb-1 mt-1"
-            onClick={() => {
-              setSelectImageArray(2);
-            }}
-          >
-            <img src={Jacket_2} alt="" className="h-full w-full rounded-lg" />
-          </button>
-          <button className="h-[24%] w-[80%] bg-transparent border-none outline-none mb-1 mt-1">
-            <img
-              src={Jacket_2}
-              alt=""
-              className="h-full w-full rounded-lg"
-              onClick={() => {
-                setSelectImageArray(3);
-              }}
-            />
-          </button>
+            /> </button>
+        ))}                
         </div>
         <div className=" relative product-description h-auto max-h-full w-2/5 m-3 p-2 bg-white rounded-md flex-3">
           <h1 className="title-product-name text-black text-3xl text-pretty text-center font-sans font-bold">
@@ -114,7 +89,7 @@ export default function ProductDetails({ id, value }) {
       </div>
       
       <article className="text-slate-950 text-3xl font-sans font-thin m-5">This item can be cool with this</article>
-      <div className="server-ad-response h-auto w-auto flex flex-row justify-between">
+      <div className="server-ad-response h-auto w-auto grid grid-cols-[auto_auto_auto_auto_auto] justify-around">
         {elements}
       </div>
     </div>
