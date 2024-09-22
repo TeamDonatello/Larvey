@@ -26,8 +26,8 @@ export default function ProductDetails({ id, value }) {
     </div>)
   }
   return (
-    <div className=" h-auto flex flex-col bg-slate-100 ">
-      <div className="productDetailsContainer flex flex-row h-3/5 m-3">
+    <div className=" h-auto flex flex-col bg-slate-100  max-sm:w-screen">
+      <div className="productDetailsContainer flex flex-row h-3/5 m-3 max-sm:flex-row max-sm:h-screen max-sm:w-screen ">
         <section
           className="main-image h-[66vh] w-2/5 m-3 bg-current bg-cover bg-no-repeat bg-center rounded-xl flex-1 bg-black"
           style={{ backgroundImage: `url(${imageArray[selectImageArray]})` }}

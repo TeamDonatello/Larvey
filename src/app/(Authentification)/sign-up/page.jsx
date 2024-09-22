@@ -13,10 +13,10 @@ const Page = () => {
           <article className='text-gray-800 text-2xl font-semibold ml-12 mb-3'>Create a Loroft account</article>
           <article className='text-xl text-gray-700 mb-4 font-thin text-pretty ml-12'>One step to access Order tracking privileges</article>
           <div className='flex flex-col h-auto w-[80%] ml-auto mr-auto'>
-            <button className='w-full h-[48px] bg-slate-600 mt-1 mb-2 rounded-md'> <img src={EmailIcon} alt="" /> Sign up with Email</button>
-            <button className='w-full h-[48px] bg-slate-600 mt-1 mb-2 rounded-md'> <img src={GithubIcon} alt="" /> Sign up with Github</button>
-            <button className='w-full h-[48px] bg-slate-600 mt-1 mb-2 rounded-md'> <img src={FacebookIcon} alt="" /> Sign up with Meta</button>
-            <button className='w-full h-[48px] bg-slate-600 mt-1 mb-2 rounded-md'> <img src={GoogleIcon} alt="" /> Sign up with Google</button>
+            <button className='w-full h-[48px] bg-slate-600 mt-1 mb-2 rounded-md flex flex-row justify-center items-center gap-3'> <img src={EmailIcon} alt="" /> Sign up with Email</button>
+            <button className='w-full h-[48px] bg-slate-600 mt-1 mb-2 rounded-md flex flex-row justify-center items-center gap-3'> <img src={GithubIcon} alt="" /> Sign up with Github</button>
+            <button className='w-full h-[48px] bg-slate-600 mt-1 mb-2 rounded-md flex flex-row justify-center items-center gap-3'> <img src={FacebookIcon} alt="" /> Sign up with Meta</button>
+            <button className='w-full h-[48px] bg-slate-600 mt-1 mb-2 rounded-md flex flex-row justify-center items-center gap-3'> <img src={GoogleIcon} alt="" /> Sign up with Google</button>
           </div>
           <div className='h-auto w-[80%] flex flex-row items-center mr-auto ml-auto mb-4 mt-2' >
             <hr className='h-auto w-[48%] bg-gray-900'/>
