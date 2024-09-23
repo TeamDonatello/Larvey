@@ -3,95 +3,69 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-const Jacket_1 = "/Images/Test/Jacket.jpg";
-const Jacket_2 = "/Images/Test/Jacket-1.jpg";
-const Jacket_3 = "/Images/Test/Jacket-2.jpg";
-const Jacket_4 = "/Images/Test/Jacket-3.jpg";
-export { Jacket_1, Jacket_2, Jacket_3, Jacket_4 };
-export default function ProductDetails({ id, value }) {
-  const targetMore = "9090";
-  const targetMoreLink = "0909";
-  const [imageArray, setImageArray] = useState([]);
-  useEffect(() => {
-    setImageArray([Jacket_1, Jacket_2, Jacket_3, Jacket_4]);
-  }, [0]);
-
-  const [selectImageArray, setSelectImageArray] = useState(0);
-  const elements = []
-  for(let i = 0;i<=9;i++){
-    elements.push(<div className="server-ad-item h-78 w-auto m-2" key={i}>
-      <img src={Jacket_1} alt=""  className="h-64 w-48 rounded-md"/>
-      <article className="font-sans font-bold text-lg text-zinc-950 m-1">Bomba Jacket</article>
-      <article className="server-ad-item-price-tag font-serif font-thin text-zinc-900 text-lg m-1">$234.00</article>
-    </div>)
-  }
-  return (
-    <div className=" h-auto flex flex-col bg-slate-100  max-sm:w-screen">
-      <div className="productDetailsContainer flex flex-row h-3/5 m-3 max-sm:flex-row max-sm:h-screen max-sm:w-screen ">
-        <section
-          className="main-image h-[66vh] w-2/5 m-3 bg-current bg-cover bg-no-repeat bg-center rounded-xl flex-1 bg-black"
-          style={{ backgroundImage: `url(${imageArray[selectImageArray]})` }}
-        ></section>
-        <div className="sub-Images h-full w-2/12 bg-slate-100 m-2 flex flex-col p-2 items-center justify-between flex-2">
-        {imageArray.map((value,key)=>(
-          <button className="h-[24%] w-[80%] bg-transparent border-none outline-none mb-1 mt-1" key={key}>
-            <img
-              src={value}
-              alt=""
-              className="h-full w-full rounded-lg"
-              onClick={() => {
-                setSelectImageArray(key);
-              }}
-            /> </button>
-        ))}                
-        </div>
-        <div className=" relative product-description h-auto max-h-full w-2/5 m-3 p-2 bg-white rounded-md flex-3">
-          <h1 className="title-product-name text-black text-3xl text-pretty text-center font-sans font-bold">
-            Boa Fleece Jacket
-          </h1>
-          <div className="title-product-offer h-6 w-full flex flex-row m-2 items-end">
-           <article className="title-product-prices text-gray-800 font-normal font-serif  line-through align-baseline">
-            $129.00
-          </article> 
-            <article className="font-serif text-gray-800 font-extrabold text-3xl ml-2">$122.00</article>
+ const ProductDetails =() => {
+  const [selectDisplay,setSelectDisplay] = useState(1)
+   let buttonElements = []
+   for (let i = 0 ; i<=3;i++){
+    buttonElements.push(<button onClick={()=>setSelectDisplay(i+1)} className="w-[160px] rounded-md max-md:max-h-[160px] max-md:max-w-[22%]">
+      <img src={`/Images/Test/Jacket-${i+1}.jpg`} alt="" className="h-full w-full rounded-md" lazy/>
+      </button>)
+   }
+   let serverElements= []
+   for (let i = 0 ;i<= 11 ;i++){
+    serverElements.push(
+      <div className=" h-[360px] w-[240px] m-3 mb-6 bg-transparent">
+            <img src="/Images/Test/Jacket-4.jpg" alt=""  className="w-full h-[80%] rounded-md" lazy/>
+            <Link href={'/productId'} className="ml-2">
+              <article className="text-xs font text-ellipsis w-full h-24px text-gray-900 mt-1 ml-3 ">Jumper man Jacket modern</article>
+              <article className="text-xs font-bold font-sans text-gray-900 ml-3">$123.32</article>
+              <article className="text-xl text-ellipsis text-gray-900 ml-3">Shoppers Shops</article>
+            </Link>            
           </div>
+    )
+   }
+    return (
+     <div className="product-details-main-component h-auto w-screen flex flex-col bg-slate-300 overflow-x-hidden">
+      <div className="product-description h-[460px] p-1  flex flex-row justify-evenly w-screen bg-transparent max-md:h-auto max-md:flex-col items-center">
+        
+        <div className="h-full w-[40%] max-md:w-screen">
+          <img src={`/Images/Test/Jacket-${selectDisplay}.jpg`} alt=""  className="h-full w-full rounded-md"/>
+        </div>
+        <div className="w-[180px] ml-2 mr-1 h-full bg-transparent flex flex-col items-center justify-evenly max-md:w-screen max-md:max-h-[180px] max-md:flex-row max-md:mt-2 max-md:ml-0 max-md:mr-0 max-md:mb-2 max-md:justify-evenly">
+          {buttonElements}
+        </div>
+        <div className=" relative bg-transparent h-full w-[44vw]  p-2 rounded-md max-md:w-screen max-md:h-auto">
+          <article className="discounted-price text-4xl text-gray-900 font-sans font-extrabold mt-2 ml-3 mb-3">
+                Boa Fleece Jacket 
+            </article>
+          <div className="w-full h-[24px] flex flex-row items-baseline mb-3">
+            
+            <article className="sale-price text-sm font-sans ml-4 mr-2 text-mono text-bold text-gray-700 line-through">
+               Was $ 123.45
+            </article>
+            <article className="item-description text-gray-950 ml-4 text-xl font-extrabold font-sans">
+              $ 112.34
+            </article>
+            </div>
+            <article className="font-serif text-xl text-gray-950 font-bold ">Description</article>
+            <p className="item-description-data h-auto w-full flex text-gray-900 text-wrap">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores reprehenderit cumque quos nemo. Laborum nam labore ipsa temporibus cum quasi, possimus minus vitae quas est quidem dolores dignissimos, porro repudiandae.
+            </p>
+            <Link href={'/more'} className="text-blue-900 text-sm">More...</Link>
           
-          <article className="title-product-reviews text-lg text-slate-700">
-            Description
-          </article>
-          <h3 className="article-product-description-title"></h3>
-          <article className="article-product-description text-sm text-gray-800 h-48 font-sans font-thin">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis
-            accusamus repudiandae eaque eius sapiente ex tenetur, odit itaque
-            optio pariatur maxime nobis deleniti sequi! Quae praesentium
-            voluptatem ratione modi illum.
-          </article>
-          <div className="absolute bottom-0">
-            <div className="h-[44px] w-[120px] rounded-lg bg-slate-500 flex items-center justify-center mt-4 ml-2 mb-2">
-              <Link
-                href={`/${targetMoreLink}`}
-                className="w-full h-full text-center"
-              >
-                More..
-              </Link>
-            </div>
-
-            <div>
-              <button className="h-[48px] w-[240px] m-2 bg-slate-300 rounded-xl">
-                Add To Cart
-              </button>
-              <button className="h-[48px] w-[240px] m-2 bg-sky-600 rounded-xl">
-                Checkout Now
-              </button>
-            </div>
+          <div className="h-auto w-full absolute bottom-0 max-md:relative ">
+            <button className="h-[44px] w-[46%] bg-blue-900 m-1 rounded-md active:animate-pulse">Checkout</button>
+            <button className="h-[44px] w-[46%] bg-blue-900 m-1 rounded-md active:animate-pulse">Add To Cart</button>
           </div>
         </div>
       </div>
-      
-      <article className="text-slate-950 text-3xl font-sans font-thin m-5">This item can be cool with this</article>
-      <div className="server-ad-response h-auto w-auto grid grid-cols-[auto_auto_auto_auto_auto] justify-around">
-        {elements}
+      <div className="server-products h-auto w-screen bg-transparent">
+        <div className="product-line grid grid-cols-4 place-items-center max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
+          {serverElements}
+        </div>
       </div>
-    </div>
-  );
-}
+     </div>
+
+    )
+ }
+ export default ProductDetails
