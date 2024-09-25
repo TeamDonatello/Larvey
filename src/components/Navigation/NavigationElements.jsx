@@ -11,7 +11,7 @@ const NavigationElements = () => {
     window.addEventListener("keydown",()=>{console.log(param.target.value)})
   }
   return (
-    <div className="h-[96px] w-screen bg-slate-300 flex flex-row max-md:flex-col max-md:w-screen max-md:h-auto">
+    <div className="h-[96px] w-screen overflow-x-hidden overflow-y-auto bg-slate-300 flex flex-row max-md:flex-col max-md:w-screen max-md:h-auto">
       <div className="h-full w-[40%] bg-transparent flex flex-row items-center max-md:h-auto max-md:w-screen max-md:mb-5 max-md:mt-4">
         <img src="/Icons/NavigationBar/logo.png" />
         <article className="text-gray-900 font-extrabold text-4xl font-serif ml-1 mr-1 max-md:text-2xl max-md:mr-0">

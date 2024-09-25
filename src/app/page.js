@@ -7,7 +7,7 @@ import ProductDetails from "@/components/Products/ProductDetails";
 
 export default function LandingPage(){
   return(
-    <div className="">
+    <div className="overflow-x-hidden">
       <Provider store={Store}>
        <NavigationElements/>
        <ProductDetails/>
