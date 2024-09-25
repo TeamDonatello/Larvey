@@ -3,14 +3,20 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Store } from "@/app/_lib_store/Store";
+import { increment } from "@/app/_lib_store/StateSlice";
 const ProductDetails = () => {
+  const dispatch = useDispatch()
   const [selectDisplay, setSelectDisplay] = useState(1);
+  const count = useSelector((state)=>state.counter.value)
+  console.log(count)
   let buttonElements = [];
   for (let i = 0; i <= 3; i++) {
     buttonElements.push(
       <button
+        key={i}
         onClick={() => setSelectDisplay(i + 1)}
         className="w-[160px] rounded-md max-md:max-h-[160px] max-md:max-w-[22%]"
       >
@@ -18,7 +24,7 @@ const ProductDetails = () => {
           src={`/Images/Test/Jacket-${i + 1}.jpg`}
           alt=""
           className="h-full w-full rounded-md"
-          lazy
+          
         />
       </button>
     );
@@ -26,12 +32,11 @@ const ProductDetails = () => {
   let serverElements = [];
   for (let i = 0; i <= 11; i++) {
     serverElements.push(
-      <div className=" h-[360px] w-[240px] m-3 mb-6 bg-transparent">
+      <div className=" h-[360px] w-[240px] m-3 mb-6 bg-transparent" key={i}>
         <img
           src="/Images/Test/Jacket-4.jpg"
           alt=""
           className="w-full h-[80%] rounded-md"
-          lazy
         />
         <Link href={"/productId"} className="ml-2">
           <article className="text-xs font text-ellipsis w-full h-24px text-gray-900 mt-1 ml-3 ">
@@ -87,7 +92,10 @@ const ProductDetails = () => {
             </Link>
 
             <div className="h-auto w-full absolute bottom-0 max-md:relative ">
-              <button className="h-[44px] w-[46%] bg-blue-900 m-1 rounded-md active:animate-pulse">
+              <button 
+              className="h-[44px] w-[46%] bg-blue-900 m-1 rounded-md active:animate-pulse"
+              onClick={()=>{dispatch(increment());console.log(count)}}
+              >
                 Checkout
               </button>
               <button className="h-[44px] w-[46%] bg-blue-900 m-1 rounded-md active:animate-pulse">
