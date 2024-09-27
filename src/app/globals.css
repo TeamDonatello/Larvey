@@ -19,7 +19,9 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
-
+img,h,article,p{
+  user-select: none;
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;

@@ -1,16 +1,19 @@
-import Footer from "@/components/Navigation/Footer";
-import Navigation from "@/components/Navigation/Navigation";
-import ProductDetails from "@/components/Products/ProductDetails";
+"use client"
 import {Metadata} from "next";
-export const metadata = {title:{
-  default:'Laroft'
-}}
+import { Provider } from "react-redux";
+import { Store } from "./_lib_store/Store";
+import NavigationElements from "@/components/Navigation/NavigationElements";
+import ProductDetails from "@/components/Products/ProductDetails";
+import HomeDefaultPage from "@/components/Home/home";
+
 export default function LandingPage(){
   return(
     <div className="overflow-x-hidden">
+      <Provider store={Store}>
+       <NavigationElements/>
+       <HomeDefaultPage/>
+      </Provider>
       
-      <ProductDetails val='val' id={'id'}/>
-      <Footer/>
     </div>
   )
 }

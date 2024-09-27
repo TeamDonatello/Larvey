@@ -8,12 +8,12 @@ const metadata = {
 const NotFound = () => { 
   const router = useRouter()
   const handleClientReRoute = () =>{
-    // router.push('/',{replace:true})
+    router.push('/',{replace:true})
   }
   useEffect(()=>{
     setTimeout(()=>{
       handleClientReRoute()
-    },900000000000)
+    },10000)
   },[])
   return (
     <div className="error-page h-screen w-screen grid place-items-center">
