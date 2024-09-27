@@ -2,13 +2,21 @@
 import {useEffect,useRef, useState} from "react"
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useSelector,useDispatch } from "react-redux";
+import { searchIncrementValues } from "@/app/_lib_store/searchSlice";
 const NavigationElements = () => {
+  const dispatch = useDispatch()
   const router = useRouter()
+  
   const [searchValue,setSearchValue]=useState('')
   const searchObject = useRef()
   
   const runSubmit=(param)=>{
     window.addEventListener("keydown",()=>{console.log(param.target.value)})
+  }
+  const handleSubmitQuery = (e)=>{
+    e.preventDefault()
+    dispatch(searchIncrementValues({name:`${searchObject.current.value}`}))
   }
   return (
     <div className="h-[96px] w-screen overflow-x-hidden overflow-y-auto bg-slate-300 flex flex-row max-md:flex-col max-md:w-screen max-md:h-auto">
@@ -43,9 +51,9 @@ const NavigationElements = () => {
 
       <div className="h-full w-[30%] max-md:w-screen max-md:h-auto max-md:mb-3">
         <div className="w-full h-full flex flex-row items-center">
-          <div className="h-[44px] w-[44px] bg-white/45 rounded-l-lg flex flex-row items-center justify-center max-md:ml-3">
+          <button type="submit" className="h-[44px] w-[44px] outline-none border-none bg-white/45 rounded-l-lg flex flex-row items-center justify-center max-md:ml-3" onClick={(e)=>{handleSubmitQuery(e)}}>
             <img src="/Icons/Navigation/search-32.png" className="" />
-          </div>
+          </button>
 
           <input type="text" 
           className="h-[44px] w-[90%] m-0 rounded-r-lg border-none outline-none pl-3 text-gray-800 placeholder-gray-600 max-md:w-[80%] " 
@@ -78,7 +86,7 @@ const NavigationElements = () => {
           </Link>
           <Link href="/shops" className="w-[48px] h-[64px] m-1">
           <div className="h-[48px] w-[48px] m-0 bg-slate-900/25 rounded-sm flex flex-row items-center justify-center active:bg-slate-400">
-            <img src="/Icons/Navigation/price-tag-24.png" className="h-[24px] w-[24px]" />
+            <img src="/Icons/NavigationBar/tag.png" className="h-[24px] w-[24px]" />
           </div>
           <article className="text-gray-700 mt-2 text-sm ">Deals</article>
           </Link>
