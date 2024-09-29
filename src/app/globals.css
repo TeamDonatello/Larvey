@@ -28,3 +28,20 @@ img,h,article,p,img{
     text-wrap: balance;
   }
 }
+div>*{
+  animation-name: scroller;
+  animation-duration: 800ms;
+  animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+  -o-animation-play-state: running;
+
+}
+@keyframes scroller{
+  from{
+    opacity:.4;
+    transform: translateY('50px') scale(.2);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0) scale(1);
+  }
+}
