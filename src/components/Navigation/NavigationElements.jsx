@@ -6,8 +6,8 @@ import { useSelector,useDispatch } from "react-redux";
 import { searchIncrementValues } from "@/app/_lib_store/searchSlice";
 const NavigationElements = () => {
   const dispatch = useDispatch()
-  const router = useRouter()
-  
+  const cartCounter = useSelector((state)=>state.cart.objects)
+  const router = useRouter()  
   const [searchValue,setSearchValue]=useState('')
   const searchObject = useRef()
   
@@ -30,7 +30,7 @@ const NavigationElements = () => {
           onClick={()=>{router.push('/cart')}}
           className="h-[48px] outline-none border-none w-[48px] bg-slate-900/25 backdrop-blur-xl flex flex-row items-center justify-center rounded-3xl active:bg-slate-500" >
             <img src="/Icons/Navigation/cart-24.png" alt="" />            
-          <sup className="text-red-600 text-[8pt] text-mono font-thin animate-pulse">{}9</sup>
+          <sup className="text-red-600 text-[8pt] text-mono font-thin animate-pulse">{cartCounter.length}</sup>
           </button>
           <button 
           onClick={()=>{router.push('/notifications')}}

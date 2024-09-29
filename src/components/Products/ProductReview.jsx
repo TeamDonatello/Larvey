@@ -7,4 +7,4 @@ const ProductReview = () => {
   )
 }
 
-export default ProductReview
+export default ProductReview 
