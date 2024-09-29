@@ -7,7 +7,6 @@ import { Provider } from 'react-redux'
 const CartItemsDisplay = () => {
     const DeleteIcon = useRef()
   return (
-    <Provider store={Store}>
             <div className="parent-cart overflow-x-hidden">
                 <NavigationElements/>
                 <div className="cart-body h-screen w-screen bg-slate-300 flex flex-col items-center">
@@ -25,7 +24,7 @@ const CartItemsDisplay = () => {
                     </div>
                 </div>
             </div>
-    </Provider>
+    
   )
 }
 

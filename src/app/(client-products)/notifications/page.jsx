@@ -1,14 +1,12 @@
 "use client"
-import { Store } from '@/app/_lib_store/Store'
 import NavigationElements from '@/components/Navigation/NavigationElements'
 import React from 'react'
-import { Provider } from 'react-redux'
 const Notifications = () => {
   return (
-    <Provider store={Store}>
-        <div className="notifications-parent overflow-x-hidden">
+    
+        <div className="notifications-parent overflow-x-hidden min-h-screen bg-slate-300">
             <NavigationElements/>
-            <div className="notifications-content h-screen w-screen bg-slate-300">
+            <div className="notifications-content h-auto w-screen bg-slate-300 ">
                 <div className="h-[72px] w-screen pl=4 mb-4">
                     <button className='h-[64px] w-[120px] outline-none bg-blue-600 shadow-xl ml-4 mt-2 rounded-md max-ms:h-[32px] max-ms:w-[43px ma] max-ms:text-xs'>
                         Refresh
@@ -31,7 +29,7 @@ const Notifications = () => {
                 </div>
             </div>
         </div>
-    </Provider>
+    
   )
 }
 
