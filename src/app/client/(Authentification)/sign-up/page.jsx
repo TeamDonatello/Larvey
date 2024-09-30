@@ -25,7 +25,7 @@ const Page = () => {
           </div>
           <div className='flex flex-row'>
             <article className='text-gray-900 ml-12'>Aready have an account ? </article>
-            <Link href={'/sign-in'} className='text-gray-700 ml-3'> Sign In</Link>
+            <Link href={'/client/sign-in'} className='text-gray-700 ml-3'> Sign In</Link>
           </div>
           <p className='w-[80%] text-gray-900 h-auto ml-auto mr-auto mt-2 '>By proceeding you agree to the 
             <Link href='/Terms' className=' text-gray-700 ml-2 mr-2'>Terms and Conditions</Link> and 

@@ -39,7 +39,7 @@ const SignIn = () => {
           </div>
           <div className='flex m-auto '>
             <article className='text-gray-900 text-sm'>New to Laroft</article>
-            <Link href={'/sign-up'} className='text-gray-700 text-sm ml-2'>Get started</Link>
+            <Link href={'/client/sign-up'} className='text-gray-700 text-sm ml-2'>Get started</Link>
           </div>
           <div className='h-auto w-full flex flex-row justify-evenly text-gray-500 text-sm absolute bottom-4'>
             <Link href={'/Help'}>Help</Link>
