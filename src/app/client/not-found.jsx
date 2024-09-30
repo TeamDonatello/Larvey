@@ -30,5 +30,5 @@ const NotFound = () => {
     </div>
   )
 }
-export {metadata}
+export const {title} = metadata
 export default NotFound
